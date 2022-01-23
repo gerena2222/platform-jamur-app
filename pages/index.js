@@ -16,10 +16,10 @@ const Home = (props) => {
             <h2>Produk Terbaru</h2>
           </div>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style={{ borderRadius: "25px" }}>
-            <div className="col">
-              {produk.map(produk => (
+            {produk.map(produk => (
+              <div className="col">
                 <div className="card">
-                  <img src={produk.gambarProduk} className="card-img-top" alt="Fissure in Sandstone" />
+                  <img src={produk.gambarProduk} className="card-img-top" width="100px" height="auto" alt="Fissure in Sandstone" />
                   <div className="card-body">
                     <div className="row row-cols-1 row-cols-sm-1  row-cols-md-1 mt-1">
                       <h5 className="card-title">{produk.namaProduk}</h5>
@@ -30,8 +30,8 @@ const Home = (props) => {
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -39,15 +39,15 @@ const Home = (props) => {
     </MainLayout>
   )
 }
-export async function getServerSideProps(ctx){
+export async function getServerSideProps(ctx) {
   try {
     const hasil = await sql_query('SELECT * FROM produk')
     const produk = JSON.parse(JSON.stringify(hasil))
-    return{
-      props:{produk}
+    return {
+      props: { produk }
     }
   } catch (error) {
-    return{props:{produk:false}}
+    return { props: { produk: false } }
   }
 }
 export default Home
