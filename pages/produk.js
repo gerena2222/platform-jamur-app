@@ -20,7 +20,7 @@ const Produk = (props) => {
                     <div className="row row-cols-1 row-cols-sm-1  row-cols-md-1 mt-1">
                       <h5 className="card-title">{produk.namaProduk}</h5>
                       <h6 className="card-text">{produk.harga} Per  {produk.satuan}</h6>
-                      <Link href="https://wa.me/+6281946356207">
+                      <Link href={`https://wa.me/+6281946356207?text=${produk.gambarProduk}%20Nama%20Barang%20:%20${produk.namaProduk}%20Harga%20:%20${produk.harga}%20Beli%20Berapa%20Kilo=%20?`}>
                         <a className='btn btn-success'>Order Now Via Whatsapp <i className='fab fa-whatsapp'></i></a>
                       </Link>
                     </div>
